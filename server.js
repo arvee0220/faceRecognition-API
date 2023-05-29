@@ -15,7 +15,7 @@ const db = knex({
     // connect to your own database here:
     client: "pg",
     connection: {
-        host: "127.0.0.1",
+        host: process.env.HOST,
         user: process.env.USER,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DB,
