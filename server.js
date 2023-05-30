@@ -25,21 +25,27 @@ const db = knex({
 const app = express();
 
 app.use(cors());
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send(db.users);
 });
+
 app.post("/signin", handleSignin(db, bcrypt));
+
 app.post("/register", (req, res) => {
     handleRegister(req, res, db, bcrypt);
 });
+
 app.get("/profile/:id", (req, res) => {
     handleProfileGet(req, res, db);
 });
+
 app.put("/image", (req, res) => {
     handleImage(req, res, db);
 });
+
 app.post("/imageurl", (req, res) => {
     handleApiCall(req, res);
 });
